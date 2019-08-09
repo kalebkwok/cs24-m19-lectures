@@ -1,0 +1,18 @@
+Lecture 2: 08/07
+Last lecture:
+1. Abstraction: 
+ - Functions (procedural) - routines
+ - Object Oriented Programming (OOP) (classes) - entities
+2. Classes: structs + functions
+ - member variables (data)
+ - member functions (interface to use the objects)
+
+ This lecture
+ 1. Abstract Data Types (ADT)
+ - Implement classes properly -> ADT
+ - classes + information hiding 
+    - (access specifiers: public, private)
+    - getter functions and setter functions (properly)
+
+ 2. How to initialize objects properly - constructors
+
