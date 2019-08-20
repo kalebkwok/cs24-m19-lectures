@@ -15,7 +15,9 @@ struct Node{
 class LinkedList{
 
 public:
-	LinkedList():head(nullptr), tail(nullptr){
+	LinkedList()
+		:head(nullptr), tail(nullptr)
+	{
         //initialization list
         //1. shorthand used when writing constructors
         //2. Only way to initialize const member variables
@@ -149,9 +151,9 @@ void LinkedList::append(int value){
 	Node* p = new Node(value);
 
 	if (!head && !tail){
-				head = p;
+		head = p;
 		tail = p;
-	} else if(head ==tail){
+	} else if(head == tail){
 		head->next = p;
 		tail = p;
 		p->prev = head;
@@ -172,7 +174,7 @@ void LinkedList::print(){
 	cout<<endl;
 }
 
-void foo(){
+void test_destructor(){
 	LinkedList list;
 	list.append(10);
 	list.append(20);
@@ -183,7 +185,7 @@ void foo(){
 
 int main(){
 
-	foo();
+	test_destructor();
 	test_append();
 	return 0;
 }
