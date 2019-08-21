@@ -15,15 +15,13 @@ struct Node{
 class LinkedList{
 
 public:
-	LinkedList()
-		:head(nullptr), tail(nullptr)
-	{
+	LinkedList(){
         //initialization list
         //1. shorthand used when writing constructors
         //2. Only way to initialize const member variables
 	}
 	~LinkedList(){
-		clear(head);
+		clear();
 	}
 
 	LinkedList(LinkedList& other){
@@ -53,79 +51,21 @@ public:
 	//returns the number of occurences of the value
 	int length();
 	bool isempty();
-	void print() const;
+	void print();
 	void clear(); // Deletes all the nodes in the linked list
-	bool operator==(const LinkedList& ll);
+	bool isEqual(LinkedList& ll);
 	bool isEqual(vector<int>& v);
-// friend bool operator==(const LinkedList& l1, 
-//		const LinkedList* l2);
-// This function can access the private member variables
-// of LinkedList
 
 private:
 	Node* head;
 	Node* tail;	
-	// Private helper functions
-	void clear(Node* h);
-	int sum(Node* h);
-	//h is a pointer to the head of a linked list
-	bool find(Node*h, int value);
 };
-
-//bool operator==(const LinkedList& l1, 
-//		const LinkedList* l2);
-
-void operator<<(const ostream& out, const LinkedList& ll); 
-void operator<<(const ostream& out, const LinkedList& ll){
-	
-	ll.print();
-
-}
-int LinkedList::sum(Node* h){
-	//Base case
-	if(!h){
-		//Empty linked list
-		return 0;
-	}
-	return h->data + sum(h->next);
-}
-bool LinkedList::find(int value){
-	return find(head, value);
-}
-
-
-bool LinkedList::find(Node*h, int value){
-
-   if(!h)
-	   return false;
-   if(h->data == value)
-	   return true;
-   return find(h->next, value);
-
-}
-
-void LinkedList::clear(Node* h){
-	if(!h)
-		return;
-	clear(h->next);
-	delete h;
-}
-
-
-int LinkedList::sum(){
-
-	return sum(head);
-
-}
-
-
-
 
 
 // Simple test framework
 void TESTEQ(LinkedList& l1, LinkedList& l2, string testname){
 	cout<<testname<<endl;
-	if(l1==l2){ // All the values of the nodes of l1 are equal to l2
+	if(l1.isEqual(l2)){ // All the values of the nodes of l1 are equal to l2
 		cout<<"PASSED"<<endl;
 	}else{
 		cout<<"FAILED"<<endl;
@@ -144,7 +84,7 @@ void TESTEQ(LinkedList& l1, vector<int>& v, string testname){
 void LinkedList::clear(){
 	//free all the nodes of the linked list from heap memory
 }
-bool LinkedList::operator==(const LinkedList& ll){
+bool LinkedList::isEqual(LinkedList& ll){
 	Node* p1 = ll.head;
 	Node* p2 = head;
 	while( p1 && p2){
@@ -223,7 +163,7 @@ void LinkedList::append(int value){
 
 }
 
-void LinkedList::print() const{
+void LinkedList::print(){
 	Node* tmp = head;
 	while(tmp){
 		cout<<tmp->data<< " ";
@@ -232,21 +172,19 @@ void LinkedList::print() const{
 	cout<<endl;
 }
 
-
 void test_destructor(){
 	LinkedList list;
 	list.append(10);
 	list.append(20);
 	list.append(30);
-//	list.print();
-    cout<<list;
+	list.print();
 	// With the default destructor this code has a memory leak
 }
 
 int main(){
 
-	test_destructor();
 	test_append();
+	test_destructor();
 	return 0;
 }
 
