@@ -1,0 +1,17 @@
+Annoucement:
+Released
+Lab 02  (linked lists)
+Lab 03 (GNU's debugger gdb)
+
+Last class:
+Linked List ADT
+
+Today:
+Unit testing: 
+- Every public member function is a Unit Under Test (UUT)
+- Test each public function using a test suite
+- Simple test framework
+
+Rule of Three
+
+Operator Overloading (maybe)
