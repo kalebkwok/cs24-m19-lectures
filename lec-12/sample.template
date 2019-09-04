@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+template<class T>
+void getMax(T& a, T& b){
+    cout<<"Max of "<<a << " and "<<b<<" is : "; 
+    if(a>b)
+        cout<<a<<endl;
+    else
+        cout<<b<<endl;
+}
+
